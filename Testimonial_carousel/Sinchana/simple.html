@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Portfolio Reviews Slider</title>
+
+<style>
+    body {
+        margin: 0;
+        background: #071426;
+        font-family: Arial, sans-serif;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 780px;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 25px;
+    }
+
+    /* Hide radios */
+    input[type="radio"] {
+        display: none;
+    }
+
+    .slider {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .slides {
+        display: flex;
+        width: 1000%;
+        transition: transform .45s ease;
+    }
+
+    .card {
+        width: 10%;
+        padding: 25px;
+        box-sizing: border-box;
+        background: #0f253c;
+        margin: 0 10px;
+        border-radius: 14px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+
+    .stars {
+        margin: 10px 0;
+        color: gold;
+        font-size: 1.2rem;
+    }
+
+    .user {
+        display: flex;
+        margin-top: 15px;
+        align-items: center;
+    }
+
+    .user img {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        margin-right: 12px;
+    }
+
+    /* Slide positions */
+    #slide1:checked  ~ .slider .slides { transform: translateX(0%); }
+    #slide2:checked  ~ .slider .slides { transform: translateX(-10%); }
+    #slide3:checked  ~ .slider .slides { transform: translateX(-20%); }
+    #slide4:checked  ~ .slider .slides { transform: translateX(-30%); }
+    #slide5:checked  ~ .slider .slides { transform: translateX(-40%); }
+    #slide6:checked  ~ .slider .slides { transform: translateX(-50%); }
+    #slide7:checked  ~ .slider .slides { transform: translateX(-60%); }
+    #slide8:checked  ~ .slider .slides { transform: translateX(-70%); }
+    #slide9:checked  ~ .slider .slides { transform: translateX(-80%); }
+    #slide10:checked ~ .slider .slides { transform: translateX(-90%); }
+
+    /* Arrows container */
+    .arrows {
+        margin-top: 35px;
+        position: relative;
+        height: 50px;
+    }
+
+    .arrow-btn {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: #264d73;
+        color: white;
+        font-size: 24px;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        transition: .3s;
+    }
+
+    .arrow-btn:hover {
+        background: #3a6fa1;
+    }
+
+    .left { left: 20%; }
+    .right { right: 20%; }
+
+    /* Show proper arrows for each slide */
+    #slide1:checked  ~ .arrows .right.to2,
+    #slide1:checked  ~ .arrows .left.to10 { display: flex; }
+
+    #slide2:checked  ~ .arrows .right.to3,
+    #slide2:checked  ~ .arrows .left.to1 { display: flex; }
+
+    #slide3:checked  ~ .arrows .right.to4,
+    #slide3:checked  ~ .arrows .left.to2 { display: flex; }
+
+    #slide4:checked  ~ .arrows .right.to5,
+    #slide4:checked  ~ .arrows .left.to3 { display: flex; }
+
+    #slide5:checked  ~ .arrows .right.to6,
+    #slide5:checked  ~ .arrows .left.to4 { display: flex; }
+
+    #slide6:checked  ~ .arrows .right.to7,
+    #slide6:checked  ~ .arrows .left.to5 { display: flex; }
+
+    #slide7:checked  ~ .arrows .right.to8,
+    #slide7:checked  ~ .arrows .left.to6 { display: flex; }
+
+    #slide8:checked  ~ .arrows .right.to9,
+    #slide8:checked  ~ .arrows .left.to7 { display: flex; }
+
+    #slide9:checked  ~ .arrows .right.to10,
+    #slide9:checked  ~ .arrows .left.to8 { display: flex; }
+
+    #slide10:checked ~ .arrows .right.to1,
+    #slide10:checked ~ .arrows .left.to9 { display: flex; }
+
+    @media (max-width: 600px) {
+        .left { left: 10%; }
+        .right { right: 10%; }
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <h2>What People Say About My Portfolio</h2>
+
+    <!-- 10 radio buttons -->
+    <input type="radio" name="slider" id="slide1" checked>
+    <input type="radio" name="slider" id="slide2">
+    <input type="radio" name="slider" id="slide3">
+    <input type="radio" name="slider" id="slide4">
+    <input type="radio" name="slider" id="slide5">
+    <input type="radio" name="slider" id="slide6">
+    <input type="radio" name="slider" id="slide7">
+    <input type="radio" name="slider" id="slide8">
+    <input type="radio" name="slider" id="slide9">
+    <input type="radio" name="slider" id="slide10">
+
+    <div class="slider">
+        <div class="slides">
+
+            <!-- Review 1 -->
+            <div class="card">
+                <p>“Your portfolio is beautifully structured. The layout feels modern and easy to navigate.”</p>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <div class="user">
+                    <!-- <img src="https://i.pravatar.cc/60?img=10"> -->
+                     <img src="Screenshot 2025-11-14 161415.png">
+                    <div><strong>Hamsa</strong><br><small>UI/UX Designer</small></div>
+                </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="card">
+                <p>“The way you present your projects is outstanding. Strong storytelling and visuals.”</p>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <div class="user">
+                    
+                    <!-- <img src="https://i.pravatar.cc/60?img=11"> -->
+                     <img src="Screenshot 2025-11-14 161521.png">
+                    <div><strong>Prakruthi</strong><br><small>Product Manager</small></div>
+                </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="card">
+                <p>“Professional and visually appealing. I can instantly understand your strengths.”</p>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <div class="user">
+                    <!-- <img src="https://i.pravatar.cc/60?img=12"> -->
+                     <img src="Screenshot 2024-08-06 153938.png">
+                    <div><strong>Sinchana</strong><br><small>Marketing Lead</small></div>
+                </div>
+            </div>
+
+            <!-- Review 4 -->
+            <div class="card">
+                <p>“Your portfolio demonstrates strong technical skills and thoughtful design decisions.”</p>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <div class="user">
+                    <img src="Screenshot 2025-11-14 161443.png">
+                    <div><strong>Moulya</strong><br><small>Software Engineer</small></div>
+                </div>
+            </div>
+
+            <!-- Review 5 -->
+            <div class="card">
+                <p>“Polished presentation. Your case studies show real depth and premium quality.”</p>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <div class="user">
+                    <img src="Screenshot 2025-11-14 162104.png">
+                    <div><strong>Geetha Priya</strong><br><small>Entrepreneur</small></div>
+                </div>
+            </div>
+
+            <!-- Review 6 -->
+            <div class="card">
+                <p>“Well crafted and intuitive. A couple text sections could be shorter, but overall excellent.”</p>
+                <div class="stars">⭐⭐⭐⭐</div>
+                <div class="user">
+                    <!-- <img src="https://i.pravatar.cc/60?img=15"> -->
+                     <img src="Screenshot 2025-11-14 161503.png">
+                    <div><strong>Prathiba</strong><br><small>QA Tester</small></div>
+                </div>
+            </div>
+
+            
+            
+
+        </div>
+    </div>
+
+    <!-- Arrows -->
+    <div class="arrows">
+
+        <!-- LEFT arrows -->
+        <label for="slide10" class="arrow-btn left to10">◀</label>
+        <label for="slide1"  class="arrow-btn left to1">◀</label>
+        <label for="slide2"  class="arrow-btn left to2">◀</label>
+        <label for="slide3"  class="arrow-btn left to3">◀</label>
+        <label for="slide4"  class="arrow-btn left to4">◀</label>
+        <label for="slide5"  class="arrow-btn left to5">◀</label>
+        <label for="slide6"  class="arrow-btn left to6">◀</label>
+        <label for="slide7"  class="arrow-btn left to7">◀</label>
+        <label for="slide8"  class="arrow-btn left to8">◀</label>
+        <label for="slide9"  class="arrow-btn left to9">◀</label>
+
+        <!-- RIGHT arrows -->
+        <label for="slide2"  class="arrow-btn right to2">▶</label>
+        <label for="slide3"  class="arrow-btn right to3">▶</label>
+        <label for="slide4"  class="arrow-btn right to4">▶</label>
+        <label for="slide5"  class="arrow-btn right to5">▶</label>
+        <label for="slide6"  class="arrow-btn right to6">▶</label>
+        <label for="slide7"  class="arrow-btn right to7">▶</label>
+        <label for="slide8"  class="arrow-btn right to8">▶</label>
+        <label for="slide9"  class="arrow-btn right to9">▶</label>
+        <label for="slide10" class="arrow-btn right to10">▶</label>
+        <label for="slide1"  class="arrow-btn right to1">▶</label>
+
+    </div>
+
+</div>
+
+</body>
+</html>
